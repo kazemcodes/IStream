@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+import 'package:istream/presentation/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,34 +13,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      title: 'IStream',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        useMaterial3: true,
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home:  const CenterName(),
+      home: const HomeScreens(),
     );
   }
 }
 
-class CenterName extends StatefulWidget {
-  const CenterName({Key? key}) : super(key: key);
-
-  @override
-  State<CenterName> createState() => _CenterNameState();
+class MainController extends GetxController {
+  var count = 0;
+  void increase() => count++;
 }
-
-class _CenterNameState extends State<CenterName> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.helloWorld),
-      ),
-    );
-  }
-}
-
