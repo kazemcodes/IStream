@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
-import 'package:istream/presentation/screens/home.dart';
+import 'package:istream/presentation/screens/home/main/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +25,4 @@ class MyApp extends StatelessWidget {
       home: const HomeScreens(),
     );
   }
-}
-
-class MainController extends GetxController {
-  var count = 0;
-  void increase() => count++;
 }

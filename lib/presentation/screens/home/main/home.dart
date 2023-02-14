@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:istream/presentation/screens/home/extension/extension_screen.dart';
 
 class HomeScreens extends StatefulWidget {
   const HomeScreens({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _HomeScreensState extends State<HomeScreens> {
   List<Widget> _widgetOptions(BuildContext context) {
     return <Widget>[
       Text(AppLocalizations.of(context)!.library),
-      Text(AppLocalizations.of(context)!.explore),
+      ExtensionScreen(),
       Text(AppLocalizations.of(context)!.setting),
     ];
   }
@@ -28,7 +29,6 @@ class _HomeScreensState extends State<HomeScreens> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: _widgetOptions(context).elementAt(_selectedIndex)),
       body: Center(
         child: _widgetOptions(context).elementAt(_selectedIndex),
       ),
